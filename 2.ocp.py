@@ -3,24 +3,43 @@ Open-Closed Principle
 
 Classes devem estar fechadas para modificação, mas abertas para extensão
 """
+from abc import abstractmethod
+
+
 class Animal:
     def __init__(self, name: str):
         self.name = name
     
     def get_name(self) -> str:
+        return self.name
+
+    @abstractmethod
+    def make_sound(self):
         pass
+        #if self.name == 'lion':
+        #    print('roar')
+        #elif self.name == 'mouse':
+        #    print('squeak')
+        #else:
+        #    print('...')
+
+class Lion(Animal):
+    def __init__(self, name: str):
+        super().__init__(name)
 
     def make_sound(self):
-        if self.name == 'lion':
-            print('roar')
-        elif self.name == 'mouse':
-            print('squeak')
-        else:
-            print('...')
+        print('roar')
+
+class Mouse(Animal):
+    def __init__(self, name: str):
+        super().__init__(name)
+
+    def make_sound(self):
+        print('squeak')
 
 animals = [
-    Animal('lion'),
-    Animal('mouse')
+    Lion,
+    Mouse
 ]
 
 def animal_sound(animals: list):
@@ -43,9 +62,24 @@ class Discount:
         self.customer = customer
         self.price = price
 
+    @abstractmethod
     def give_discount(self):
-            if self.customer == 'fav':
-                return self.price * 0.2
-            if self.customer == 'vip':
-                return self.price * 0.4
+        pass
+            #if self.customer == 'fav':
+            #    return self.price * 0.2
+            #if self.customer == 'vip':
+            #    return self.price * 0.4
 
+class DiscountFav(Discount):
+    def __init__(self, customer, price):
+        super().__init__(customer, price)
+
+    def give_discount(self):
+        return self.price * 0.2
+
+class DiscountVip(Discount):
+    def __init__(self, customer, price):
+        super().__init__(customer, price)
+
+    def give_discount(self):
+        return self.price * 0.4
