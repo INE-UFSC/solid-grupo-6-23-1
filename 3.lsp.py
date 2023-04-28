@@ -10,29 +10,33 @@ class Animal:
     def get_name(self) -> str:
         return self.name
 
+class AnimalWithoutLegs(Animal):
+    def __init__(self, name) -> None:
+        super().__init__(name)
+
+class AnimalWithLegs(Animal):
+    def __init__(self, name, legs):       
+        super().__init__(name)
+        self.__legs = legs
+
     def leg_count(self) -> int:
-        return 0
+        return self.__legs
 
-class Lion(Animal):
+class Lion(AnimalWithLegs):
     def __init__(self):
-        super().__init__('lion')
+        super().__init__('lion', 4)
 
-    def leg_count(self):
-        return 4
-
-class Snake(Animal):
+class Snake(AnimalWithoutLegs):
     def __init__(self):
         super().__init__('snake')
-
-    def leg_count(self):
-        return 0
 
 
 def animal_leg_count(animals: list):
     count = 0
     for animal in animals:
-        count += animal.leg_count()
+        if isinstance(animal, AnimalWithLegs):
+            count += animal.leg_count()
     return count
 
-
-
+#Exemplo de uso
+print(animal_leg_count([Lion(), Snake()]))
