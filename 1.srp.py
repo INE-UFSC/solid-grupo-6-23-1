@@ -10,9 +10,15 @@ class Animal:
     def __init__(self, name: str):
         self.name = name
     
-    def get_name(self) -> str:
-        pass
+    @property
+    def get_name(self):
+        return self.name
 
-    # salva no DB
+class BancoDados:
+    def __init__(self):
+        self.animais = []
+
+
     def save(self, animal: Animal):
-        pass
+        animal = Animal(name)
+        self.animais.append(animal)
