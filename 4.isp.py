@@ -4,7 +4,7 @@ Crie interfaces que são específicas. Clientes não devem depender de interface
 """
 from abc import ABC, abstractmethod
 
-class IJanela(ABC):
+class IJanelaTamanhoFixo(ABC):
 
     @abstractmethod
     def maximizar(self):
