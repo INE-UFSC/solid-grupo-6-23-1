@@ -6,23 +6,15 @@ from abc import ABC, abstractmethod
 
 class IJanela(ABC):
     
+    @abstractmethod
     def minimizar(self):
-        raise NotImplementedError
-        
+        pass
+
+    @abstractmethod  
     def fechar(self):
-        raise NotImplementedError
+        pass
 
-class IJanelaTamanhoFixo(IJanela):
-    
-    def mostrar_menu(self):
-        raise NotImplementedError
-
-class IJanelaSemMenu(IJanela):
-
-    def maximizar(self):
-        raise NotImplementedError
-
-class JanelaTamanhoFixo(IJanelaTamanhoFixo):
+class JanelaTamanhoFixo(IJanela):
 
     def minimizar(self):
         pass
@@ -33,14 +25,13 @@ class JanelaTamanhoFixo(IJanelaTamanhoFixo):
     def fechar(self):
         pass
 
-class JanelaSemMenu(IJanelaSemMenu):
+class JanelaSemMenu(IJanela):
 
     def maximizar(self):
         pass
 
     def minimizar(self):
         pass
-    
     
     def fechar(self):
         pass
