@@ -20,5 +20,4 @@ class BancoDados:
 
 
     def save(self, animal: Animal):
-        animal = Animal(name)
         self.animais.append(animal)
