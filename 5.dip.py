@@ -8,7 +8,6 @@ Dependências devem ser feitas sobre abstrações, não sobre implementações c
 
 class Player:
     def __init__(self, name):
-        self.stats = StatsReporter(self)
         self.__name = name
         self.__hp = 100
         self.__speed = 1
@@ -19,10 +18,7 @@ class Player:
     def name(self):
         return self.__name
 
-class StatsReporter:
-    def __init__(self, char: Player):
-        self.char = char
-
     def report(self):
-        print(f'Name:{self.char.name()}')
-        print(f'HP:{self.char.hp()}')
+        print(f'Name:{self.__name()}')
+        print(f'HP:{self.__hp()}')
+        print(f'Speed:{self.__speed()}')
