@@ -38,8 +38,8 @@ class Mouse(Animal):
         print('squeak')
 
 animals = [
-    Lion,
-    Mouse
+    Lion('Jorginho'),
+    Mouse('Jerry')
 ]
 
 def animal_sound(animals: list):
