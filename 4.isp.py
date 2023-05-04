@@ -7,27 +7,33 @@ from abc import ABC, abstractmethod
 
 class IJanela(ABC):
 
+    @abstractmethod
+    def minimizar(self):
+        pass
+
     @abstractmethod  
     def fechar(self):
         pass
 
-class IJanelaSemMenu(IJanela, ABC):
+class IJanelaSemTamanhoFixo(IJanela):
 
     @abstractmethod
     def maximizar(self):
         pass
 
-    @abstractmethod
-    def minimizar(self):
-        pass
-
-class IJanelaTamanhoFixo(IJanela, ABC):
+class IJanelaComMenu(IJanela):
 
     @abstractmethod
     def mostrar_menu(self):
         pass
 
-class JanelaTamanhoFixo(IJanelaTamanhoFixo):
+#Exemplos classes
+
+#tamanho fixo com menu
+class JanelaMenuJogo(IJanelaComMenu):
+
+    def minimizar(self):
+        pass
 
     def mostrar_menu(self):
         pass
@@ -35,7 +41,9 @@ class JanelaTamanhoFixo(IJanelaTamanhoFixo):
     def fechar(self):
         pass
 
-class JanelaSemMenu(IJanelaSemMenu):
+
+#tamanho alteravel sem menu
+class JanelaWeb(IJanelaSemTamanhoFixo):
 
     def maximizar(self):
         pass
